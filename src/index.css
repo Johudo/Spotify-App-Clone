@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+
+    font-family: 'Helvetica Neue', 'helvetica', 'arial', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS Gothic', sans-serif;
+    color: #b3b3b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a, p {
+    font-size: 14px;
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid #b3b3b3;
+    color: inherit;
+}
+
+
+.App {
+    height: 100vh;
+    max-width: 100vw;
+
+    display: flex;
+}
