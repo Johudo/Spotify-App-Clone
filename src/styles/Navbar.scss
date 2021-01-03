@@ -1,9 +1,9 @@
-$main-color: #b3b3b3;
+@import '../index.scss';
 
 .navbar {
     width: 232px;
     padding: 24px 0 0;
-    background: #000;
+    background: black;
 
     color: $main-color;
 }
@@ -39,7 +39,7 @@ $main-color: #b3b3b3;
             transition: 0.3s;
 
             &:hover {
-                color: #fff;
+                color: white;
             }
 
             svg {
@@ -77,10 +77,10 @@ $main-color: #b3b3b3;
             }
 
             &:hover {
-                color: #fff;
+                color: white;
 
                 svg {
-                    background-color: #fff ;
+                    background-color: white ;
                 }
             }
         }
