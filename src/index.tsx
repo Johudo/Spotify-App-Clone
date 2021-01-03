@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 
 import App from "./components/App"
 
-import './index.css'
+import './index.scss'
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

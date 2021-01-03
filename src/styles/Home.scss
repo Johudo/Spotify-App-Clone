@@ -1,0 +1,22 @@
+.home {
+    position: relative;
+    width: calc(100vw - 232px);
+    padding: 16px 16px 0;
+
+    display: grid;
+    row-gap: 32px;
+
+    overflow-y: scroll  ;
+
+    .home-section__title {
+        color: #fff;
+        margin-bottom: 16px;
+    }
+    
+    .home-section__playlists-list {
+        display: grid;
+        column-gap: 24px;
+        row-gap: 24px;
+        grid-template-columns: repeat(auto-fill, minmax(180px,1fr))
+    }
+}

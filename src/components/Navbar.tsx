@@ -1,27 +1,47 @@
 import * as React from 'react'
 
-import SpotifyLogo from '../svg/test.svg'
+import LogoSVG from '../svg/logo.svg'
+import LibSVG from '../svg/lib.svg'
+import HomeSVG from '../svg/home.svg'
+import SearchSVG from '../svg/search.svg'
 
-import '../styles/Navbar.css'
+import CreatePlaylistSVG from '../svg/createPlaylist.svg'
+
+import '../styles/Navbar.scss'
 
 
 function Navbar() {
   return (
     <nav className='navbar'>
-      
-      {/* <SpotifyLogo className='navbar__logo' />  */}
-      <SpotifyLogo /> 
+      <a href="/" className='navbar__logo' >
+        <LogoSVG />
+      </a>
 
-      <ul className='navbar__nav-list'>
-        <li><a href='/'>Главная</a></li>
-        <li><a href='/search'>Поиск</a></li>
-        <li><a href='/collection'>Моя медиатека</a></li>
+      <ul className='navbar__list'>
+        <li><a href='/'>
+          <HomeSVG />
+          <span>Главная</span>
+        </a></li>
+        <li><a href='/search'>
+          <SearchSVG />
+          <span>Поиск</span>
+        </a></li>
+        <li><a href='/collection'>
+          <LibSVG />
+          <span>Моя медиатека</span>
+        </a></li>
       </ul>
 
-      <div>
-        <h4>Плейлисты</h4>
-        <button>Создать плейлист</button>
-        <ul className='navbar__nav-list'>
+      <div className='navbar__playlists'>
+        <h1>Плейлисты</h1>
+  
+        <ul className='navbar__list'>
+          <li>
+            <button>
+              <CreatePlaylistSVG />
+              <span>Создать плейлист</span>
+            </button>
+          </li>
           <li><a href='/'>Любимые треки</a></li>
           <li><a href='/'>Плейлист</a></li>
           <li><a href='/'>Плейлист</a></li>

@@ -1,0 +1,70 @@
+$green: #1db954;
+$bg-color: #181818;
+
+.playlist-demo {
+    padding: 16px;
+    background: $bg-color;
+    border-radius: 4px;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+
+    &:hover .playlist-demo__image-block .playlist-demo__play-button {
+        background: $green;
+        color: #fff;
+    }
+
+    .playlist-demo__image-block {
+        position: relative;
+        margin-bottom: 16px;
+        
+        .playlist-demo__image-cover {
+            width: 100%;
+            padding-bottom: 100%;
+            position: relative;
+
+            .playlist-demo__image {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+
+        .playlist-demo__play-button {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: transparent;
+            color: transparent;
+            transition: 0.2s;
+            cursor: inherit;
+
+            &:hover { 
+                right: 14px;
+                bottom: 14px;   
+                width: 44px;
+                height: 44px;
+            }
+        }
+
+    }
+
+    .playlist-demo__title {
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 8px;
+    }
+}
+
