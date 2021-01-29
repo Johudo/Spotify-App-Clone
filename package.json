@@ -12,7 +12,7 @@
         "dev": "concurrently --prefix \"[{name}]\" --names \"SERVER,CLIENT\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run dev-server\" \"npm run dev-client\"",
         "build": "concurrently --prefix \"[{name}]\" --names \"SERVER,CLIENT\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run build-server\" \"npm run build-client\""
     },
-    "author": "",
+    "author": "Zuev Dmitriy",
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1",
