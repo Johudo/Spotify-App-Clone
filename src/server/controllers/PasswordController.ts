@@ -24,16 +24,41 @@ class PasswordController extends Controller {
             });
             res.status(200).send(result);
         } catch (err) {
-            // if (err.code == 11000) {
-            //     console.error("ERROR: Tried to create password.", req.body);
-            //     res.status(400).send("Username is used");
-            // }
             console.error("ERROR " + err.code + ": Can't create user.", req.body);
             res.status(400).send("Failed");
         }
     }
 
-    checkPassword(req: express.Request, res: express.Response) {}
+    async checkPassword(req: express.Request, res: express.Response) {
+        try {
+            let result = await Password.findOne({
+                username: String(req.query.username) || "",
+            });
+
+            if (result === null)
+                throw {
+                    text: "User was not found",
+                    code: 404,
+                    knownError: true,
+                };
+
+            if (result.password !== req.query.password)
+                throw {
+                    text: "Incorrect password",
+                    code: 401,
+                    knownError: true,
+                };
+
+            res.status(202).send(result);
+        } catch (err) {
+            if (err.knownError) {
+                res.status(err.code).send(err.text);
+            } else {
+                console.error("ERROR " + err.code + ": Can't log in.", req.query);
+                res.status(400).send("Failed");
+            }
+        }
+    }
 }
 
 export default PasswordController;

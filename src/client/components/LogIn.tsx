@@ -16,14 +16,29 @@ function LogIn() {
         event.preventDefault();
 
         axios
-            .post(API_URL + "/password", {
-                username: usernameState,
-                password: md5(passwordState),
+            .get(API_URL + "/password", {
+                params: {
+                    username: usernameState,
+                    password: md5(passwordState),
+                },
             })
             .then((res: AxiosResponse) => {
                 console.log(res.data);
+                alert("success");
             })
-            .catch((err) => {});
+            .catch((err) => {
+                console.log(err.response);
+            });
+
+        // axios
+        //     .post(API_URL + "/password", {
+        //         username: usernameState,
+        //         password: md5(passwordState),
+        //     })
+        //     .then((res: AxiosResponse) => {
+        //         console.log(res.data);
+        //     })
+        //     .catch((err) => {});
     };
 
     return (
