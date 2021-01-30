@@ -1,14 +1,13 @@
-import express from "express";
+import mongoose from "mongoose";
+import App from "./App";
+import { DB_URL, SERVER_PORT } from "./config";
+import Controller from "./controllers/Controller";
+import PasswordController from "./controllers/PasswordController";
 
-import { SERVER_PORT } from "./config";
+const controllers: Controller[] = [new PasswordController()];
 
-const app: express.Express = express();
-const PORT: number = SERVER_PORT;
+const app = new App(controllers, SERVER_PORT, true);
+app.listen();
 
-app.get("/", (req: express.Request, res: express.Response) =>
-    res.send("Express + TypeScript Server")
-);
-
-app.listen(PORT, () => {
-    console.log(`[SERVER]: Server is running at https://localhost:${PORT}`);
-});
+mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set("useCreateIndex", true);
