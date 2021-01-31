@@ -1,4 +1,4 @@
-@import '../index.scss';
+@import "../index.scss";
 
 .navbar {
     width: 232px;
@@ -8,27 +8,24 @@
     color: $main-color;
 }
 
-
 .navbar__logo {
-    display: block;
-    padding: 0 24px;
     margin-bottom: 28px;
 
     svg {
         height: 40px;
         max-width: 180px;
-    
+
         color: #fff;
     }
 }
-
 
 .navbar__list {
     li {
         height: 40px;
         padding: 0 8px;
 
-        a, button {
+        a,
+        button {
             display: flex;
             align-items: center;
 
@@ -49,7 +46,6 @@
     }
 }
 
-
 .navbar__playlists {
     padding: 0 24px;
 
@@ -66,24 +62,24 @@
     .navbar__list li {
         padding: 0;
 
-        a, button {
+        a,
+        button {
             padding: 0;
 
             svg {
                 width: 32px;
                 height: 32px;
                 padding: 4px;
-                background-color: $main-color ;
+                background-color: $main-color;
             }
 
             &:hover {
                 color: white;
 
                 svg {
-                    background-color: white ;
+                    background-color: white;
                 }
             }
         }
     }
-
 }

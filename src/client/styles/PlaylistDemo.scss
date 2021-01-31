@@ -1,6 +1,12 @@
+$main-color: #b3b3b3;
+$green: #1db954;
+$dark-green: #15883e;
+$bg-color-dark: #121212;
+$bg-color-light: #181818;
+
 .playlist-demo {
     padding: 16px;
-    background: $bg-color;
+    background: $bg-color-light;
     border-radius: 4px;
 
     transition: 0.3s;
@@ -15,7 +21,7 @@
     .playlist-demo__image-block {
         position: relative;
         margin-bottom: 16px;
-        
+
         .playlist-demo__image-cover {
             width: 100%;
             padding-bottom: 100%;
@@ -29,7 +35,6 @@
                 left: 0;
             }
         }
-
 
         .playlist-demo__play-button {
             position: absolute;
@@ -48,14 +53,13 @@
             transition: 0.2s;
             cursor: inherit;
 
-            &:hover { 
+            &:hover {
                 right: 14px;
-                bottom: 14px;   
+                bottom: 14px;
                 width: 44px;
                 height: 44px;
             }
         }
-
     }
 
     .playlist-demo__title {
@@ -64,4 +68,3 @@
         margin-bottom: 8px;
     }
 }
-
