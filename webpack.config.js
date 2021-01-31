@@ -47,12 +47,10 @@ module.exports = {
     devServer: {
         port: CLIENT_PORT,
         open: true,
-        // liveReload: true,
         hot: true,
-        // watchContentBase: true,
-        // publicPath: "/",
         contentBase: path.resolve(__dirname, "./dist/client"),
         compress: true,
+        historyApiFallback: true,
     },
 
     resolve: {

@@ -6,9 +6,9 @@ import InputBlock from "./InputBlock";
 import SpotifyLogo from "../svg/logo.svg";
 import { API_URL } from "../config";
 
-import "../styles/LogIn.scss";
+import "../styles/Login.scss";
 
-function LogIn() {
+function Login() {
     const [usernameState, setUsernameState] = React.useState("");
     const [passwordState, setPasswordState] = React.useState("");
 
@@ -29,16 +29,6 @@ function LogIn() {
             .catch((err) => {
                 console.log(err.response);
             });
-
-        // axios
-        //     .post(API_URL + "/password", {
-        //         username: usernameState,
-        //         password: md5(passwordState),
-        //     })
-        //     .then((res: AxiosResponse) => {
-        //         console.log(res.data);
-        //     })
-        //     .catch((err) => {});
     };
 
     return (
@@ -78,7 +68,7 @@ function LogIn() {
 
                     <button
                         type="submit"
-                        className="login-form__submit-button"
+                        className="login-form__submit-button button green-button"
                         onClick={onClickSubmitButton}
                     >
                         Войти
@@ -88,10 +78,12 @@ function LogIn() {
 
             <div className="login-register">
                 <h2 className="login-register__title">Нет аккаунта?</h2>
-                <button className="login-register__button">Регистрация в Spotify</button>
+                <button className="login-register__button button">
+                    Регистрация в Spotify
+                </button>
             </div>
         </div>
     );
 }
 
-export default LogIn;
+export default Login;

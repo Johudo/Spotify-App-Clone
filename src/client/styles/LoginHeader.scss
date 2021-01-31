@@ -1,0 +1,14 @@
+@import "../index.scss";
+
+.login-header {
+    background-color: $bg-color-dark;
+    display: flex;
+    justify-content: flex-end;
+
+    .button {
+        padding: 8px 34px;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 700;
+    }
+}

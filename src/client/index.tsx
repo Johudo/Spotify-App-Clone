@@ -1,10 +1,20 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as _ from 'lodash';
+import { Provider } from "react-redux";
+import { combineReducers, createStore } from "redux";
 
-import App from "./components/App"
+import App from "./components/App";
+import IsLoggedInReducer from "./store/IsLoggedIn/reducer";
 
-import './index.scss'
+import "./index.scss";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// const rootReducer = combineReducers(IsLoggedInReducer);
 
+const store = createStore(IsLoggedInReducer);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
+);

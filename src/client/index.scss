@@ -1,14 +1,16 @@
 $main-color: #b3b3b3;
 $green: #1db954;
 $dark-green: #15883e;
+$bg-color-dark-10: #101010;
 $bg-color-dark: #121212;
-$bg-color-light:#181818;
+$bg-color-light: #181818;
 
 body {
     margin: 0;
     padding: 0;
 
-    font-family: 'Helvetica Neue', 'helvetica', 'arial', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS Gothic', sans-serif;
+    font-family: "Helvetica Neue", "helvetica", "arial", "Hiragino Kaku Gothic Pro",
+        "Meiryo", "MS Gothic", sans-serif;
     color: $main-color;
 }
 
@@ -21,7 +23,8 @@ ul {
     padding: 0;
 }
 
-a, p {
+a,
+p {
     font-size: 14px;
     text-decoration: none;
     color: inherit;
@@ -30,7 +33,7 @@ a, p {
 button {
     background-color: transparent;
     border: none;
-    
+
     font-size: 14px;
     text-decoration: none;
     color: inherit;
@@ -40,7 +43,13 @@ button {
     }
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0;
 }
 
@@ -50,7 +59,7 @@ input {
     background-color: $bg-color-dark;
     padding: 6px 12px;
     caret-color: $main-color;
-    color:$main-color;
+    color: $main-color;
     border: 1px solid $main-color;
 
     &:focus {

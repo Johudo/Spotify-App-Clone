@@ -1,26 +1,26 @@
 import * as React from "react";
-import { Switch, Route, Router } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 
+import Login from "./Login";
 import Navbar from "./Navbar";
-import Home from "./Home";
-import LogIn from "./LogIn";
+import Main from "./Main";
 
 import "../styles/App.scss";
+import "../styles/Button.scss";
 
 function App(): any {
-    const history = createBrowserHistory();
-
     return (
-        <Router history={history}>
+        <BrowserRouter>
             <div className="App">
                 <Switch>
-                    <Route path="/" component={Home} />
-                    <Route path="/login" component={LogIn} />
-                    {/* <Route path="/register" component={Home} /> */}
+                    <Route exact path="/">
+                        <Navbar />
+                        <Main />
+                    </Route>
+                    <Route path="/login" component={Login} />
                 </Switch>
             </div>
-        </Router>
+        </BrowserRouter>
     );
 }
 

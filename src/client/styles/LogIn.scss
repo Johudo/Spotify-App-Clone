@@ -1,4 +1,4 @@
-@import '../index.scss';
+@import "../index.scss";
 
 .login-window {
     .login-header {
@@ -44,23 +44,7 @@
 
             .login-form__submit-button {
                 min-width: 180px;
-                padding: 18px 12px;
                 margin: 20px 0;
-    
-                background-color: $dark-green;
-                border-radius: 26px;
-    
-                color: white;
-                font-weight: bold;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-
-                cursor: pointer;
-                transition: 0.3s;
-
-                &:hover {
-                    background-color: $green;
-                }
             }
         }
 
@@ -71,7 +55,7 @@
                 margin-right: 12px;
             }
         }
-    } 
+    }
 
     .login-register {
         width: 450px;
@@ -86,19 +70,6 @@
 
         .login-register__button {
             width: 100%;
-            border: 2px solid $main-color;
-            border-radius: 27px;
-            padding: 18px 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            transition: 0.3s;
-            cursor: pointer;
-
-            &:hover {
-                background-color: $main-color;
-                color: $bg-color-light;
-            }
         }
-    }   
+    }
 }

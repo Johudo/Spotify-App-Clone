@@ -1,4 +1,4 @@
-.main {
+.home {
     position: relative;
     width: calc(100vw - 232px);
     padding: 16px 16px 0;
@@ -8,12 +8,12 @@
 
     overflow-y: scroll;
 
-    .main-section__title {
+    .home-section__title {
         color: white;
         margin-bottom: 16px;
     }
 
-    .main-section__playlists-list {
+    .home-section__playlists-list {
         display: grid;
         column-gap: 24px;
         row-gap: 24px;

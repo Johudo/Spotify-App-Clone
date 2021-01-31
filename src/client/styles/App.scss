@@ -1,4 +1,4 @@
-@import '../index.scss';
+@import "../index.scss";
 
 .App {
     height: 100vh;
@@ -6,5 +6,5 @@
 
     display: flex;
 
-    background: $bg-color-dark;
+    background: linear-gradient(#202020 2%, $bg-color-dark 20%);
 }
