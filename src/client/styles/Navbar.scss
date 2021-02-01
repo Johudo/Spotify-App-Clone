@@ -2,9 +2,8 @@
 
 .navbar {
     width: 232px;
-    padding: 24px 0 0;
     background: black;
-
+    padding: 24px 0 0;
     color: $main-color;
 }
 
@@ -15,24 +14,25 @@
         height: 40px;
         max-width: 180px;
 
-        color: #fff;
+        color: white;
     }
 }
 
 .navbar__list {
+    padding: 16px 0;
+
     li {
         height: 40px;
         padding: 0 8px;
+        display: flex;
 
-        a,
-        button {
+        a {
             display: flex;
             align-items: center;
 
             text-align: left;
             font-weight: 700;
 
-            padding: 0 16px;
             transition: 0.3s;
 
             &:hover {
@@ -46,6 +46,20 @@
     }
 }
 
+.navbar__main-list {
+    padding: 16px 8px;
+
+    li {
+        padding: 0 16px;
+
+        &:hover {
+            background-color: $bg-color-light-28;
+            color: white;
+            border-radius: 6px;
+        }
+    }
+}
+
 .navbar__playlists {
     padding: 0 24px;
 
@@ -55,17 +69,14 @@
         letter-spacing: 0.1em;
     }
 
-    button {
-        border: none;
+    .navbar__playlists-list__big {
+        border-bottom: 1px solid $bg-color-light-28;
     }
 
     .navbar__list li {
         padding: 0;
 
-        a,
-        button {
-            padding: 0;
-
+        a {
             svg {
                 width: 32px;
                 height: 32px;
