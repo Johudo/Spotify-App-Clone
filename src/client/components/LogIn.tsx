@@ -19,7 +19,11 @@ function Login() {
     const history = useHistory();
 
     const isLoggedIn: boolean = useSelector((state: boolean) => state);
-    if (isLoggedIn) history.push("/");
+
+    // Redirect if user logged in
+    React.useEffect(() => {
+        if (isLoggedIn) history.push("/");
+    }, []);
 
     const onClickSubmitButton = (event: React.MouseEvent): void => {
         event.preventDefault();
@@ -35,7 +39,6 @@ function Login() {
                 },
             })
             .then((res: AxiosResponse) => {
-                console.log(res.data);
                 dispatch(toLogIn());
                 sessionStorage.setItem("username", username);
                 history.push("/");
