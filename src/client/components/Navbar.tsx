@@ -8,9 +8,19 @@ import SearchSVG from "../svg/search.svg";
 import CreatePlaylistSVG from "../svg/createPlaylist.svg";
 
 import "../styles/Navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios, { AxiosResponse } from "axios";
+import { API_URL } from "../config";
+import md5 from "md5";
+import { useSelector } from "react-redux";
+import { IsLoggedInState } from "../store/types/isLoggedInTypes";
 
 function Navbar() {
+    const history = useHistory();
+    const isLoggedInState: IsLoggedInState = useSelector(
+        (state: IsLoggedInState) => state
+    );
+
     const navbarList = [
         {
             link: "/",
@@ -34,15 +44,7 @@ function Navbar() {
         },
     ];
 
-    const navbarBigPlaylists = [
-        {
-            link: "/create-playlist",
-            SVG: CreatePlaylistSVG,
-            text: "Создать плейлист",
-        },
-    ];
-
-    const navbarSmallPlaylists = [
+    const navbarPlaylists = [
         {
             link: "/",
             text: "Любимые треки",
@@ -56,6 +58,30 @@ function Navbar() {
             text: "Плейлист",
         },
     ];
+
+    const createPlaylist = (): any => {
+        if (!isLoggedInState.isLoggedIn) {
+            alert("Not logged in");
+            return null;
+        }
+
+        const username = isLoggedInState.username;
+        const playlistID = md5(username + new Date().getTime());
+
+        axios
+            .post(API_URL + "/playlist", {
+                id: playlistID,
+                title: "Мой плейлист",
+                author: username,
+            })
+            .then((res: AxiosResponse) => {
+                console.log(res);
+                history.push("/playlist/" + res.data.id);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     return (
         <nav className="navbar">
@@ -75,21 +101,13 @@ function Navbar() {
             <div className="navbar__playlists">
                 <h1>Плейлисты</h1>
 
-                <ul className="navbar__list navbar__playlists-list__big">
-                    {navbarBigPlaylists.map((item, index) => {
-                        return (
-                            <li key={"navbar-big-playlist-" + index}>
-                                <Link to={item.link}>
-                                    <item.SVG />
-                                    <span>{item.text}</span>
-                                </Link>
-                            </li>
-                        );
-                    })}
-                </ul>
+                <button className="navbar__create-playlist" onClick={createPlaylist}>
+                    <CreatePlaylistSVG />
+                    <span>Создать плейлист</span>
+                </button>
 
                 <ul className="navbar__list">
-                    {navbarSmallPlaylists.map((item, index) => {
+                    {navbarPlaylists.map((item, index) => {
                         return (
                             <li key={"navbar-small-playlist-" + index}>
                                 <Link to={item.link}>{item.text}</Link>

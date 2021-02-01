@@ -10,6 +10,7 @@ import { API_URL } from "../config";
 import { toLogIn } from "../store/creators/isLoggedInCreator";
 
 import "../styles/Login.scss";
+import { IsLoggedInState } from "../store/types/isLoggedInTypes";
 
 function Login() {
     const [usernameState, setUsernameState] = React.useState("");
@@ -18,16 +19,16 @@ function Login() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const isLoggedIn: boolean = useSelector((state: boolean) => state);
+    const isLoggedInState: IsLoggedInState = useSelector(
+        (state: IsLoggedInState) => state
+    );
 
     // Redirect if user logged in
     React.useEffect(() => {
-        if (isLoggedIn) history.push("/");
+        if (isLoggedInState.isLoggedIn) history.push("/");
     }, []);
 
     const onClickSubmitButton = (event: React.MouseEvent): void => {
-        event.preventDefault();
-
         const username = usernameState;
         const password = md5(passwordState);
 
@@ -39,8 +40,8 @@ function Login() {
                 },
             })
             .then((res: AxiosResponse) => {
-                dispatch(toLogIn());
-                sessionStorage.setItem("username", username);
+                dispatch(toLogIn(res.data.username));
+                localStorage.setItem("username", username);
                 history.push("/");
             })
             .catch((err) => {
