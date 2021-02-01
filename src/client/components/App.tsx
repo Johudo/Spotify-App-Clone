@@ -21,11 +21,11 @@ function App(): any {
         <BrowserRouter>
             <div className="App">
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path="/login" component={Login} />
+                    <Route>
                         <Navbar />
                         <Main />
                     </Route>
-                    <Route path="/login" component={Login} />
                 </Switch>
             </div>
         </BrowserRouter>
