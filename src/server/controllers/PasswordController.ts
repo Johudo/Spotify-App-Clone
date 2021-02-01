@@ -1,4 +1,3 @@
-import { exception } from "console";
 import express from "express";
 import { Password } from "../schemas/PasswordSchema";
 import Controller from "./Controller";
