@@ -1,5 +1,5 @@
-import * as actionsTypes from "./actionTypes";
-import { IsLoggedInAction, IsLoggedInDispatchType } from "./type";
+import * as actionsTypes from "../actions/isLoggedInActions";
+import { IsLoggedInAction, IsLoggedInDispatchType } from "../types/isLoggedInTypes";
 
 export function toLogIn() {
     const action: IsLoggedInAction = {
