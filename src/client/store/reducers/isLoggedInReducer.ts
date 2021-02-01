@@ -1,15 +1,28 @@
 import * as actionsTypes from "../actions/isLoggedInActions";
-import { IsLoggedInAction } from "../types/isLoggedInTypes";
+import { IsLoggedInAction, IsLoggedInState } from "../types/isLoggedInTypes";
 
-const initialState: boolean = false;
+const initialState: IsLoggedInState = {
+    isLoggedIn: false,
+    username: "",
+};
 
-const reducer = (state: boolean = initialState, action: IsLoggedInAction): boolean => {
+const reducer = (
+    state: IsLoggedInState = initialState,
+    action: IsLoggedInAction
+): IsLoggedInState => {
     switch (action.type) {
         case actionsTypes.TO_LOG_IN:
-            state = true;
+            state = {
+                isLoggedIn: true,
+                username: action.username,
+            };
             break;
+
         case actionsTypes.TO_LOG_OUT:
-            state = false;
+            state = {
+                isLoggedIn: false,
+                username: "",
+            };
             break;
     }
 

@@ -1,9 +1,10 @@
 import * as actionsTypes from "../actions/isLoggedInActions";
 import { IsLoggedInAction, IsLoggedInDispatchType } from "../types/isLoggedInTypes";
 
-export function toLogIn() {
+export function toLogIn(username: string) {
     const action: IsLoggedInAction = {
         type: actionsTypes.TO_LOG_IN,
+        username: username,
     };
 
     return (dispatch: IsLoggedInDispatchType) => dispatch(action);

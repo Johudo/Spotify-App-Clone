@@ -7,13 +7,13 @@ function HomeHeader() {
 
     const logOutCallback = (event: React.MouseEvent) => {
         event.preventDefault();
-        sessionStorage.removeItem("username");
+        localStorage.removeItem("username");
         dispatch(toLogOut());
     };
 
     return (
         <div className="header">
-            <p>Username: {sessionStorage.getItem("username")}</p>
+            <p>Username: {localStorage.getItem("username")}</p>
             <button
                 type="submit"
                 className="button white-button"

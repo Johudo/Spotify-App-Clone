@@ -13,8 +13,9 @@ import { toLogIn } from "../store/creators/isLoggedInCreator";
 function App(): any {
     const dispatch = useDispatch();
 
-    const authenticatedUsername = sessionStorage.getItem("username");
-    if (authenticatedUsername) dispatch(toLogIn());
+    const authenticatedUsername =
+        localStorage.getItem("username") || sessionStorage.getItem("username");
+    if (authenticatedUsername) dispatch(toLogIn(authenticatedUsername));
 
     return (
         <BrowserRouter>
