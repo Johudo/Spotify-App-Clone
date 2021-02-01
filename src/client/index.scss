@@ -1,9 +1,4 @@
-$main-color: #b3b3b3;
-$green: #1db954;
-$dark-green: #15883e;
-$bg-color-dark-10: #101010;
-$bg-color-dark: #121212;
-$bg-color-light: #181818;
+@import "./colors.scss";
 
 body {
     margin: 0;
