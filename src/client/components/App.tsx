@@ -1,5 +1,6 @@
-import * as React from "react";
+import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Login from "./Login";
 import Navbar from "./Navbar";
@@ -7,8 +8,14 @@ import Main from "./Main";
 
 import "../styles/App.scss";
 import "../styles/Button.scss";
+import { toLogIn } from "../store/creators/isLoggedInCreator";
 
 function App(): any {
+    const dispatch = useDispatch();
+
+    const authenticatedUsername = sessionStorage.getItem("username");
+    if (authenticatedUsername) dispatch(toLogIn());
+
     return (
         <BrowserRouter>
             <div className="App">

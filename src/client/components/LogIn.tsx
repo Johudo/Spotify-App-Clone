@@ -1,10 +1,13 @@
 import * as React from "react";
 import axios, { AxiosResponse } from "axios";
 import md5 from "md5";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import InputBlock from "./InputBlock";
 import SpotifyLogo from "../svg/logo.svg";
 import { API_URL } from "../config";
+import { toLogIn } from "../store/creators/isLoggedInCreator";
 
 import "../styles/Login.scss";
 
@@ -12,19 +15,30 @@ function Login() {
     const [usernameState, setUsernameState] = React.useState("");
     const [passwordState, setPasswordState] = React.useState("");
 
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const isLoggedIn: boolean = useSelector((state: boolean) => state);
+    if (isLoggedIn) history.push("/");
+
     const onClickSubmitButton = (event: React.MouseEvent): void => {
         event.preventDefault();
+
+        const username = usernameState;
+        const password = md5(passwordState);
 
         axios
             .get(API_URL + "/password", {
                 params: {
-                    username: usernameState,
-                    password: md5(passwordState),
+                    username: username,
+                    password: password,
                 },
             })
             .then((res: AxiosResponse) => {
                 console.log(res.data);
-                alert("success");
+                dispatch(toLogIn());
+                sessionStorage.setItem("username", username);
+                history.push("/");
             })
             .catch((err) => {
                 console.log(err.response);
