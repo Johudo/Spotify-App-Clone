@@ -7,7 +7,7 @@ module.exports = {
     entry: "./src/client/index.tsx",
     output: {
         path: path.join(__dirname, "/dist/client"),
-        filename: "/index_bundle.js",
+        filename: "./index_bundle.js",
     },
 
     target: "web",
