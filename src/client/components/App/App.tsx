@@ -2,15 +2,14 @@ import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import Login from "./Login";
-import Navbar from "./Navbar";
-import Main from "./Main";
+import Login from "../views/LoginView";
+import Main from "../views/MainView";
 
-import "../styles/App.scss";
-import "../styles/Button.scss";
-import { toLogIn } from "../store/creators/isLoggedInCreator";
+import "./App.scss";
+import "../blocks/Button/Button.scss";
+import { toLogIn } from "../../store/creators/isLoggedInCreator";
 
-function App(): any {
+export function App(): any {
     const dispatch = useDispatch();
 
     const authenticatedUsername =
@@ -23,7 +22,6 @@ function App(): any {
                 <Switch>
                     <Route exact path="/login" component={Login} />
                     <Route>
-                        <Navbar />
                         <Main />
                     </Route>
                 </Switch>
@@ -31,5 +29,3 @@ function App(): any {
         </BrowserRouter>
     );
 }
-
-export default App;

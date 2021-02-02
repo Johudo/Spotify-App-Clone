@@ -1,11 +1,11 @@
 import React from "react";
-import PlaylistDemo from "./PlaylistDemo";
-import Header from "./headers/Header";
-import HomeHeader from "./headers/HomeHeader";
+import PlaylistDemo from "../../blocks/PlaylistDemo";
+import Header from "../../blocks/headers/Header";
+import StandartHeader from "../../blocks/headers/StandartHeader";
 
-import "../styles/Home.scss";
+import "./HomeView.scss";
 
-function Home() {
+export function HomeView() {
     const playlist = [
         {
             title: "На повторе",
@@ -29,7 +29,7 @@ function Home() {
 
     return (
         <React.Fragment>
-            <Header type={HomeHeader} />
+            <Header type={StandartHeader} />
             <div className="home">
                 <section className="home-section">
                     <h2 className="home-section__title">Ты часто слушаешь</h2>
@@ -50,5 +50,3 @@ function Home() {
         </React.Fragment>
     );
 }
-
-export default Home;

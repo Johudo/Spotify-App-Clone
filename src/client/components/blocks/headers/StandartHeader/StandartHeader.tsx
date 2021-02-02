@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toLogOut } from "../../store/creators/isLoggedInCreator";
+import { toLogOut } from "../../../../store/creators/isLoggedInCreator";
 
-function HomeHeader() {
+export function StandartHeader() {
     const dispatch = useDispatch();
 
     const logOutCallback = (event: React.MouseEvent) => {
@@ -24,5 +24,3 @@ function HomeHeader() {
         </div>
     );
 }
-
-export default HomeHeader;

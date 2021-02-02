@@ -4,15 +4,15 @@ import md5 from "md5";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import InputBlock from "./InputBlock";
-import SpotifyLogo from "../svg/logo.svg";
-import { API_URL } from "../config";
-import { toLogIn } from "../store/creators/isLoggedInCreator";
+import Input from "../../blocks/Input";
+import SpotifyLogo from "../../../svg/logo.svg";
+import { API_URL } from "../../../config";
+import { toLogIn } from "../../../store/creators/isLoggedInCreator";
+import { IsLoggedInState } from "../../../store/types/isLoggedInTypes";
 
-import "../styles/Login.scss";
-import { IsLoggedInState } from "../store/types/isLoggedInTypes";
+import "./LoginView.scss";
 
-function Login() {
+export function LoginView() {
     const [usernameState, setUsernameState] = React.useState("");
     const [passwordState, setPasswordState] = React.useState("");
 
@@ -62,12 +62,12 @@ function Login() {
                     Чтобы продолжить, войдите в Spotify.
                 </h1>
 
-                <InputBlock
+                <Input
                     label="Имя пользователя"
                     id="username"
                     onChange={setUsernameState}
                 />
-                <InputBlock
+                <Input
                     label="Пароль"
                     type="password"
                     id="password"
@@ -103,5 +103,3 @@ function Login() {
         </div>
     );
 }
-
-export default Login;

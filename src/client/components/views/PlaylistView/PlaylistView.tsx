@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import React, { useState } from "react";
-import { API_URL } from "../config";
+import { API_URL } from "../../../config";
 
-function Playlist(props: any) {
+export function PlaylistView(props: any) {
     const [playlistInfoState, setPlaylistInfoState] = useState({
         id: undefined,
         title: undefined,
@@ -41,5 +41,3 @@ function Playlist(props: any) {
         </div>
     );
 }
-
-export default Playlist;

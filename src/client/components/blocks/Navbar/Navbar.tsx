@@ -1,21 +1,22 @@
 import * as React from "react";
-
-import LogoSVG from "../svg/logo.svg";
-import LibSVG from "../svg/lib.svg";
-import HomeSVG from "../svg/home.svg";
-import SearchSVG from "../svg/search.svg";
-
-import CreatePlaylistSVG from "../svg/createPlaylist.svg";
-
-import "../styles/Navbar.scss";
-import { Link, useHistory } from "react-router-dom";
-import axios, { AxiosResponse } from "axios";
-import { API_URL } from "../config";
 import md5 from "md5";
 import { useSelector } from "react-redux";
-import { IsLoggedInState } from "../store/types/isLoggedInTypes";
+import { Link, useHistory } from "react-router-dom";
+import axios, { AxiosResponse } from "axios";
 
-function Navbar() {
+import LogoSVG from "../../../svg/logo.svg";
+import LibSVG from "../../../svg/lib.svg";
+import HomeSVG from "../../../svg/home.svg";
+import SearchSVG from "../../../svg/search.svg";
+
+import CreatePlaylistSVG from "../../../svg/createPlaylist.svg";
+
+import { API_URL } from "../../../config";
+import { IsLoggedInState } from "../../../store/types/isLoggedInTypes";
+
+import "./Navbar.scss";
+
+export function Navbar() {
     const history = useHistory();
     const isLoggedInState: IsLoggedInState = useSelector(
         (state: IsLoggedInState) => state
@@ -119,5 +120,3 @@ function Navbar() {
         </nav>
     );
 }
-
-export default Navbar;

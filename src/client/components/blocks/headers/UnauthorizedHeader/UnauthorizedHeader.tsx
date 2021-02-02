@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../../styles/LoginHeader.scss";
+import "./UnauthorizedHeader.scss";
 
-function LoginHeader() {
+export function UnauthorizedHeader() {
     return (
         <div className="login-header header">
             <Link to="/register" className="button transparent-button">
@@ -15,5 +15,3 @@ function LoginHeader() {
         </div>
     );
 }
-
-export default LoginHeader;
