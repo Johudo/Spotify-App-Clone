@@ -1,8 +1,8 @@
 import express from "express";
 import { Playlist } from "../schemas/PlaylistSchema";
-import Controller from "./Controller";
+import AbstractController from "./AbstractController";
 
-class PlaylistController extends Controller {
+class PlaylistController extends AbstractController {
     public path: string = "/playlist";
 
     constructor() {

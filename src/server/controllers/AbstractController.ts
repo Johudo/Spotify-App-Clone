@@ -1,6 +1,6 @@
 import express from "express";
 
-class Controller {
+abstract class AbstractController {
     public path!: string;
     router: express.Router = express.Router();
 
@@ -8,9 +8,7 @@ class Controller {
         return this.router;
     }
 
-    initRouter(): void {
-        throw Error("Method Controller.initRouter() must be overload!");
-    }
+    abstract initRouter(): void;
 }
 
-export default Controller;
+export default AbstractController;

@@ -1,12 +1,12 @@
 import cors from "cors";
 import express from "express";
-import Controller from "./controllers/Controller";
+import AbstractController from "./controllers/AbstractController";
 
 class App {
     app: express.Application = express();
     port: number;
 
-    constructor(controllers: Controller[], port?: number, cors?: boolean) {
+    constructor(controllers: AbstractController[], port?: number, cors?: boolean) {
         this.port = port || 8000;
         cors ? this.useCORS() : null;
 
@@ -18,7 +18,7 @@ class App {
         this.app.use(cors());
     }
 
-    useRouters(controllers: Controller[]): void {
+    useRouters(controllers: AbstractController[]): void {
         controllers.forEach((controller) => {
             this.app.use(controller.getRouter());
         });
