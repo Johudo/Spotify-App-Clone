@@ -1,8 +1,8 @@
 import express from "express";
 import { Password } from "../schemas/PasswordSchema";
-import Controller from "./Controller";
+import AbstractController from "./AbstractController";
 
-class PasswordController extends Controller {
+class PasswordController extends AbstractController {
     public path: string = "/password";
 
     constructor() {
